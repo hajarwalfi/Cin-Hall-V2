@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinéHall - Films et Séances</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .film-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <h1 class="text-2xl font-bold mb-4">CinéHall - Films et Séances</h1>
+    
+    <div class="mb-4">
+        <label for="seance-filter" class="mr-2">Filtrer par type:</label>
+        <select id="seance-filter" class="border p-1 rounded">
+            <option value="">Toutes les séances</option>
+            <option value="Normal">Normale</option>
+            <option value="VIP">VIP</option>
+        </select>
+    </div>
+    
+    <div id="loading" class="my-4">Chargement des films...</div>
+    
+    <div id="films-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Les films seront injectés ici par JavaScript -->
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
