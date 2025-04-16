@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinéHall - Réservation de Sièges</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-gray-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">CinéHall</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-blue-300">Accueil</a></li>
+                    <li><a href="films.html" class="hover:text-blue-300">Films</a></li>
+                    <li><a href="reservation.html" class="hover:text-blue-300 font-bold">Réservation</a></li>
+                    <li><a href="mes-reservations.html" class="hover:text-blue-300">Mes Réservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4">
+        <div class="mb-6">
+            <h2 class="text-2xl font-bold mb-4">Réservation de Sièges</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+                <div class="mb-4">
+                    <label for="seance-select" class="block text-sm font-medium text-gray-700 mb-1">Sélectionnez une séance</label>
+                    <select id="seance-select" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option value="">-- Choisir une séance --</option>
+                    </select>
+                </div>
+                
+                <div id="film-info" class="hidden mb-4 p-4 bg-gray-50 rounded-md">
+                    <h3 id="film-titre" class="text-lg font-semibold mb-2"></h3>
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span id="film-genre" class="px-2 py-1 bg-blue-100 rounded text-sm"></span>
+                        <span id="film-duree" class="px-2 py-1 bg-gray-200 rounded text-sm"></span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span id="seance-date" class="px-2 py-1 bg-green-100 rounded text-sm"></span>
+                        <span id="seance-type" class="px-2 py-1 rounded text-sm"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="reservation-container" class="hidden">
+                <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+                    <h3 class="text-lg font-semibold mb-4">Sélection des sièges</h3>
+                    
+                    <div class="mb-6 text-center">
+                        <div class="w-3/4 h-8 mx-auto bg-gray-300 rounded-t-lg mb-8 flex items-center justify-center">
+                            <span class="text-gray-700 text-sm">ÉCRAN</span>
+                        </div>
+                        
+                        <div id="sieges-container" class="mb-6">
+                            <!-- La carte des sièges sera générée ici par JavaScript -->
+                        </div>
+                        
+                        <div class="flex justify-center gap-6 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-gray-200 rounded-md mr-2"></div>
+                                <span>Disponible</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-blue-500 rounded-md mr-2"></div>
+                                <span>Sélectionné</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-red-500 rounded-md mr-2"></div>
+                                <span>Réservé</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-yellow-300 rounded-md mr-2"></div>
+                                <span>Siège couple</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="selection-info" class="hidden p-4 bg-gray-50 rounded-md mb-4">
+                        <h4 class="font-semibold mb-2">Sièges sélectionnés</h4>
+                        <ul id="sieges-selectionnes" class="list-disc pl-5 mb-2"></ul>
+                        <p id="total-price" class="font-bold"></p>
+                        <div class="text-sm text-red-600 mt-2">
+                            <p>Attention: Votre réservation expirera après 15 minutes si elle n'est pas payée.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button id="reserver-btn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Réserver
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="confirmation-container" class="hidden bg-white rounded-lg shadow-md p-4">
+                <div class="text-center">
+                    <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold mb-2">Réservation confirmée!</h3>
+                    <p class="mb-4">Votre code de réservation: <span id="reservation-code" class="font-bold"></span></p>
+                    <p class="mb-6">Veuillez payer votre réservation dans les 15 minutes pour éviter son annulation automatique.</p>
+                    
+                    <div class="flex justify-center gap-4">
+                        <button id="payer-btn" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                            Payer maintenant
+                        </button>
+                        <button id="retour-btn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">
+                            Retour à l'accueil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 CinéHall. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/reservation.js"></script>
+</body>
+</html>
