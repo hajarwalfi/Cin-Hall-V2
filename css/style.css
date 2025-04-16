@@ -57,3 +57,120 @@
     width: 100%;
     height: 100%;
 }
+/* css/styles.css */
+.siege {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.siege-standard {
+    background-color: #e5e7eb;
+}
+
+.siege-vip {
+    background-color: #fef3c7;
+    border: 1px solid #f59e0b;
+}
+
+.siege-couple {
+    background-color: #fef08a;
+    border: 1px solid #f59e0b;
+}
+
+.siege-disponible {
+    cursor: pointer;
+}
+
+.siege-reserve {
+    background-color: #ef4444;
+    color: white;
+    cursor: not-allowed;
+}
+
+.siege-selectionne {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.rangee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.rangee-label {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.ecran {
+    width: 80%;
+    height: 20px;
+    background-color: #d1d5db;
+    margin: 0 auto 30px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.legende {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.legende-item {
+    display: flex;
+    align-items: center;
+}
+
+.legende-couleur {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.countdown {
+    font-weight: bold;
+    color: #ef4444;
+}
+
+.statut-reserve {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.statut-paye {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.statut-annule {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
